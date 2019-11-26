@@ -1,3 +1,4 @@
+//C# ile ∑=(a,b) simgesinde tanımlı ve L=(aa+b)*(aba)*(bab)* regüler ifadesiyle sunulan dil için bir dil tanıyıcı program.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -268,7 +269,7 @@ namespace ConsoleApp1
             if (isAccepted(str) == 1)
                 Console.Write("String Kabul Edildi.");
             else
-                Console.Write("Ge�ersiz String!");
+                Console.Write("Geçersiz String!");
             Console.ReadLine();
         }
     }
