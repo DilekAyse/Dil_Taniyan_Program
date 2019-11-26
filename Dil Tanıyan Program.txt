@@ -1,0 +1,275 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static int dfa = 0;
+        static void start(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 3;
+            }
+            else if (c == 'b')
+            {
+                dfa = 1;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state1(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 2;
+            }
+            else if (c == 'b')
+            {
+                dfa = 1;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state2(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 4;
+            }
+            else if (c == 'b')
+            {
+                dfa = 11;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state3(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 4;
+            }
+            else if (c == 'b')
+            {
+                dfa = 5;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state4(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 2;
+            }
+            else if (c == 'b')
+            {
+                dfa = 1;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state5(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 6;
+            }
+            else if (c == 'b')
+            {
+                dfa = 12;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state6(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 7;
+            }
+            else if (c == 'b')
+            {
+                dfa = 8;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state7(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 12;
+            }
+            else if (c == 'b')
+            {
+                dfa = 5;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state8(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 9;
+            }
+            else if (c == 'b')
+            {
+                dfa = 12;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state9(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 12;
+            }
+            else if (c == 'b')
+            {
+                dfa = 10;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state10(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 12;
+            }
+            else if (c == 'b')
+            {
+                dfa = 8;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state11(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 6;
+            }
+            else if (c == 'b')
+            {
+                dfa = 8;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+        static void state12(char c)
+        {
+            if (c == 'a')
+            {
+                dfa = 12;
+            }
+            else if (c == 'b')
+            {
+                dfa = 12;
+            }
+            else
+            {
+                dfa = -1;
+            }
+        }
+
+        static int isAccepted(char[] str)
+        {
+            // store length of string 
+            int i, len = str.Length;
+
+            for (i = 0; i < len; i++)
+            {
+                if (dfa == 0)
+                    start(str[i]);
+
+                else if (dfa == 1)
+                    state1(str[i]);
+
+                else if (dfa == 2)
+                    state2(str[i]);
+
+                else if (dfa == 3)
+                    state3(str[i]);
+
+                else if (dfa == 4)
+                    state4(str[i]);
+
+                else if (dfa == 5)
+                    state5(str[i]);
+
+                else if (dfa == 6)
+                    state6(str[i]);
+
+                else if (dfa == 7)
+                    state7(str[i]);
+
+                else if (dfa == 8)
+                    state8(str[i]);
+
+                else if (dfa == 9)
+                    state9(str[i]);
+
+                else if (dfa == 10)
+                    state10(str[i]);
+
+                else if (dfa == 11)
+                    state11(str[i]);
+
+                else if (dfa == 12)
+                    state12(str[i]);
+
+                else
+                    return 0;
+            }
+            if (dfa == 0 | dfa == 1 | dfa == 4 | dfa == 6 | dfa == 10 | dfa == 11)
+                return 1;
+            else
+                return 0;
+        }
+
+        public static void Main(String[] args)
+        {
+
+            Console.Write("String giriniz:");
+            char[] str = Console.ReadLine().ToCharArray();
+            if (isAccepted(str) == 1)
+                Console.Write("String Kabul Edildi.");
+            else
+                Console.Write("Geçersiz String!");
+            Console.ReadLine();
+        }
+    }
+}
